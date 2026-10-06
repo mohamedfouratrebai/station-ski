@@ -20,6 +20,14 @@ pipeline {
             }
         }
 
+        stage('Analyse SonarQube') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh 'mvn sonar:sonar -Dsonar.projectKey=station-ski'
+                }
+            }
+        }
+
         stage('Package Maven') {
             steps {
                 sh 'mvn package -DskipTests'
