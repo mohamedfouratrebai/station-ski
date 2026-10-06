@@ -23,7 +23,7 @@ pipeline {
         stage('Analyse SonarQube') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar -Dsonar.projectKey=station-ski'
+	sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=station-ski'
                 }
             }
         }
