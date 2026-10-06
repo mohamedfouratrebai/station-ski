@@ -28,11 +28,19 @@ pipeline {
             }
         }
 
+
+
         stage('Package Maven') {
             steps {
                 sh 'mvn package -DskipTests'
             }
         }
+
+stage('Deploy Nexus') {
+    steps {
+        sh 'mvn deploy -DskipTests'
+    }
+}
 
         stage('Build Docker Image') {
             steps {
