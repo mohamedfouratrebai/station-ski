@@ -23,6 +23,7 @@ pipeline {
 stage('Analyse RetireJS') {
     steps {
         dir('Myapp') {
+            sh 'npm ci'
             sh 'retire'
         }
     }
