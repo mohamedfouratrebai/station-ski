@@ -35,6 +35,12 @@ stage('Analyse RetireJS') {
     }
 }
 
+stage('Security Acceptance Testing - Gauntlt') {
+    steps {
+        sh 'gauntlt security/network.attack'
+    }
+}
+
         stage('Analyse SonarQube') {
             steps {
                 withSonarQubeEnv('SonarQube') {

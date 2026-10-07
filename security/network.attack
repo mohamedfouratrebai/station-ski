@@ -1,0 +1,12 @@
+Feature: Network security testing
+
+  Scenario: Verify Jenkins port is open
+    Given "nmap" is installed
+    When I launch an "nmap" attack with:
+      """
+      nmap -p 8080 127.0.0.1
+      """
+    Then the output should contain:
+      """
+      8080/tcp open
+      """
