@@ -8,6 +8,12 @@ pipeline {
             }
         }
 
+stage('Pre-Commit Security Hooks') {
+    steps {
+        sh '/var/lib/jenkins/.local/bin/pre-commit run --all-files'
+    }
+}
+
         stage('Date système') {
             steps {
                 sh 'date'
