@@ -20,6 +20,14 @@ pipeline {
             }
         }
 
+stage('Analyse RetireJS') {
+    steps {
+        dir('Myapp') {
+            sh 'retire'
+        }
+    }
+}
+
         stage('Analyse SonarQube') {
             steps {
                 withSonarQubeEnv('SonarQube') {
