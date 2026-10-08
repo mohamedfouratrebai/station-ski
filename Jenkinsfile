@@ -59,6 +59,12 @@ stage('Ansible Lint - Security Check') {
     }
 }
 
+stage('Infrastructure Testing - Serverspec') {
+    steps {
+        sh 'rspec spec/infrastructure_spec.rb --format documentation'
+    }
+}
+
         stage('Analyse SonarQube') {
             steps {
                 withSonarQubeEnv('SonarQube') {
