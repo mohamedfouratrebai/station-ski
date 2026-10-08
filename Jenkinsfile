@@ -41,6 +41,12 @@ stage('Security Acceptance Testing - Gauntlt') {
     }
 }
 
+stage('DAST - Nmap Security Scan') {
+    steps {
+        sh 'bash security/dast/scan.sh'
+    }
+}
+
 stage('Infrastructure as Code - Ansible') {
     steps {
         sh 'ansible-playbook -i localhost, ansible/check-docker.yml'
