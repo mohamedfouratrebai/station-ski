@@ -41,6 +41,12 @@ stage('Security Acceptance Testing - Gauntlt') {
     }
 }
 
+stage('Infrastructure as Code - Ansible') {
+    steps {
+        sh 'ansible-playbook -i localhost, ansible/check-docker.yml'
+    }
+}
+
         stage('Analyse SonarQube') {
             steps {
                 withSonarQubeEnv('SonarQube') {
