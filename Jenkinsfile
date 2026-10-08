@@ -47,6 +47,12 @@ stage('Infrastructure as Code - Ansible') {
     }
 }
 
+stage('Ansible Lint - Security Check') {
+    steps {
+        sh 'ansible-lint ansible/check-docker.yml'
+    }
+}
+
         stage('Analyse SonarQube') {
             steps {
                 withSonarQubeEnv('SonarQube') {
